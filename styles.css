@@ -3,7 +3,7 @@
 body {
   background-image: url("https://gifdb.com/images/high/realistic-rainbow-drip-slime-background-m8abbv9nptnmj0b3.gif");
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   margin: 0;
 }
 
@@ -13,9 +13,14 @@ body {
   align-items: center;
   justify-content: space-evenly;
   border: solid blue;
-  padding: 0% 2% 0% 2%;
   text-transform: uppercase;
   height: 10vh;
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 0.529936974789916) 100%
+  );
 }
 
 .navLeft,
@@ -43,46 +48,65 @@ body {
   text-decoration: none;
 }
 
-.topContainer {
+.navRight a:hover,
+.navLeft a:hover {
+  font-weight: 900;
+}
+
+.topContainer,
+.midContainer {
   border: solid purple;
   display: flex;
-  justify-content: space-between;
-  height: 70vh;
+  justify-content: center;
+  height: 90vh;
 }
 
-.topContImage {
+.topContImage,
+.midContImage {
   border: solid yellow;
-  width: 50%;
+  height: auto;
   display: flex;
   justify-content: center;
+  width: 50%;
 }
 
-.topContImage img {
+.topContImage img,
+.midContImage img {
   width: 500px;
   height: 500px;
+  border: solid white;
+  object-fit: cover;
+  align-self: center;
 }
 
 .topContText {
+  align-self: center;
   border: solid rgb(234, 0, 255);
-  width: 50%;
   overflow: hidden;
   overflow-wrap: break-word;
+  height: 50%;
+  width: 30%;
+  margin: 10%;
 }
 
 .midContainer {
-  border: solid rgb(105, 160, 255);
-  height: 43%;
-  display: flex;
   flex-direction: row-reverse;
-}
-.midContImage {
-  border: solid rgb(181, 191, 255);
-  width: 50%;
+  height: 100vh;
 }
 
 .midContText {
-  border: solid rgb(255, 0, 0);
+  font-family: "Passion One", sans-serif;
+  font-size: 100px;
+  border: solid rgb(234, 0, 255);
+  overflow: hidden;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50%;
+  text-shadow: -4px 4px #ef3550, -8px 8px #f48fb1, -12px 12px #7e57c2,
+    -16px 16px #2196f3, -20px 20px #26c6da, -24px 24px #43a047,
+    -28px 28px #eeff41, -32px 32px #f9a825, -36px 36px #ff5722;
 }
 
 /* Media Query Syntax: Allows the rules of our css to apply to multiple screen sizes */
@@ -105,6 +129,13 @@ body {
     padding-left: 10%;
     padding-right: 10%;
   }
+  .midContainer {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .midContText {
+    transform: rotate(90deg);
+  }
 }
 
 /* -----------------------------------------------------[End Of MidView] */
@@ -117,7 +148,13 @@ body {
     justify-content: space-around;
     border: solid blue;
     text-transform: uppercase;
-    padding: 0% 0% 0% 0%;
+    height: 10vh;
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+      0deg,
+      rgba(34, 193, 195, 1) 0%,
+      rgba(253, 187, 45, 0.529936974789916) 100%
+    );
   }
   .navRight {
     display: flex;
@@ -130,34 +167,47 @@ body {
     display: none;
   }
 
-  .topContainer {
+  .topContainer,
+  .midContainer {
+    flex-direction: column;
+    align-items: center;
     flex-direction: column; /* Stack image and text vertically */
     align-items: center; /* Center-align the child elements */
-    height: 80vh;
   }
 
-  .topContImage {
-    border: solid yellow;
-    display: flex;
+  .topContImage,
+  .midContImage {
     justify-content: center;
     height: 50%;
     width: 100%;
   }
 
-  .topContImage img {
+  .topContImage img,
+  .midContImage img {
     width: 100%; /* Make the image responsive */
-    height: auto; /* Maintain aspect ratio */
+    height: 100%; /* Maintain aspect ratio */
     max-width: 100%; /* Ensure image does not exceed its container */
   }
 
-  .topContText {
-    border: solid rgb(234, 0, 255);
+  .topContText,
+  .midContText {
     width: 100%; /* Allow text to take full width on mobile */
     height: 50%;
-    padding: 5%;
-    overflow: hidden;
-    overflow-wrap: break-word;
+    text-align: center;
+  }
+  .midContText {
+    transform: rotate(0deg);
+  }
+
+  .topContainer {
+    margin-bottom: 20%;
   }
 }
 
 /* -----------------------------------------------------[End Of Mobile] */
+
+/* HIDE ALL BORDERS: */
+
+* {
+  border: none !important;
+}
