@@ -1,13 +1,58 @@
-/* KEYFRAMES: */
+* {
+  box-sizing: border-box;
+}
 
-/* ----------General CSS*/
+/* KEYFRAMES: */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  70% {
+    transform: translateX(0) rotate(0);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+  85% {
+    transform: rotate(-5deg);
+  }
+  90% {
+    transform: rotate(5deg);
+  }
+  95% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  0%,
+  100% {
+    transform: scale(0.9);
+  }
+
+  50% {
+    transform: scale(1); /* Slightly larger size */
+  }
+}
+
+/* ANIMATIONS */
+
+/* ----------General CSS---------*/
 body {
   background-image: url("https://gifdb.com/images/high/realistic-rainbow-drip-slime-background-m8abbv9nptnmj0b3.gif");
   background-size: cover;
   height: 100%;
   margin: 0;
 }
-
+/* ---NAV BAR--- */
 .navContainer {
   font-family: "Madimi One", sans-serif;
   display: flex;
@@ -16,6 +61,7 @@ body {
   border: solid blue;
   text-transform: uppercase;
   height: 10vh;
+  width: 100%;
   background: rgb(34, 193, 195);
   background: linear-gradient(
     0deg,
@@ -54,12 +100,15 @@ body {
   font-weight: 900;
 }
 
+/* --BODY CONTAINERS-- */
+
 .topContainer,
 .midContainer {
   border: solid purple;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   height: 90vh;
+  width: 100%;
 }
 
 .topContImage,
@@ -73,10 +122,10 @@ body {
 
 .topContImage img,
 .midContImage img {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: 100%;
   border: solid white;
-  object-fit: cover;
+  object-fit: contain;
   align-self: center;
 }
 
@@ -86,8 +135,12 @@ body {
   overflow: hidden;
   overflow-wrap: break-word;
   height: 50%;
-  width: 30%;
-  margin: 10%;
+  width: 50%;
+}
+
+.buyThisShirt {
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .midContainer {
@@ -114,28 +167,21 @@ body {
 
 /* ----------------------------------------------{ Desktop View} */
 @media (max-width: 1580px) {
-  .smallnavContainer {
-    display: none;
-  }
 }
 
 /* -----------------------------------------------------[End Of Desktop] */
 
 /* ----------------------------------------------{ Mid View - Ipad / Tablet} */
 @media (max-width: 980px) {
-  .smallnavContainer {
-    display: none;
-  }
-  .topContainer {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
+  .topContainer,
   .midContainer {
     padding-left: 10%;
     padding-right: 10%;
   }
+
   .midContText {
     transform: rotate(90deg);
+    animation: slideInFromLeft 3s ease forwards infinite;
   }
 }
 
@@ -172,8 +218,6 @@ body {
   .midContainer {
     flex-direction: column;
     align-items: center;
-    flex-direction: column; /* Stack image and text vertically */
-    align-items: center; /* Center-align the child elements */
   }
 
   .topContImage,
@@ -198,17 +242,17 @@ body {
   }
   .midContText {
     transform: rotate(0deg);
+    animation: scaleUp 1s ease infinite;
   }
 
   .topContainer {
     margin-bottom: 20%;
   }
 }
-
 /* -----------------------------------------------------[End Of Mobile] */
 
 /* HIDE ALL BORDERS: */
 
-* {
+/* * {
   border: none !important;
-}
+} */
