@@ -8,12 +8,14 @@ body {
 }
 
 .navContainer {
+  font-family: "Madimi One", sans-serif;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   border: solid blue;
   padding: 0% 2% 0% 2%;
   text-transform: uppercase;
+  height: 10vh;
 }
 
 .navLeft,
@@ -34,10 +36,53 @@ body {
   display: none;
 }
 
-.navRight a {
+.navRight a,
+.navLeft a {
   display: flex;
   align-items: center;
   text-decoration: none;
+}
+
+.topContainer {
+  border: solid purple;
+  display: flex;
+  justify-content: space-between;
+  height: 70vh;
+}
+
+.topContImage {
+  border: solid yellow;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.topContImage img {
+  width: 500px;
+  height: 500px;
+}
+
+.topContText {
+  border: solid rgb(234, 0, 255);
+  width: 50%;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.midContainer {
+  border: solid rgb(105, 160, 255);
+  height: 43%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.midContImage {
+  border: solid rgb(181, 191, 255);
+  width: 50%;
+}
+
+.midContText {
+  border: solid rgb(255, 0, 0);
+  width: 50%;
 }
 
 /* Media Query Syntax: Allows the rules of our css to apply to multiple screen sizes */
@@ -55,6 +100,10 @@ body {
 @media (max-width: 980px) {
   .smallnavContainer {
     display: none;
+  }
+  .topContainer {
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 
@@ -79,6 +128,35 @@ body {
 
   .navContainer {
     display: none;
+  }
+
+  .topContainer {
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center-align the child elements */
+    height: 80vh;
+  }
+
+  .topContImage {
+    border: solid yellow;
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+  }
+
+  .topContImage img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure image does not exceed its container */
+  }
+
+  .topContText {
+    border: solid rgb(234, 0, 255);
+    width: 100%; /* Allow text to take full width on mobile */
+    height: 50%;
+    padding: 5%;
+    overflow: hidden;
+    overflow-wrap: break-word;
   }
 }
 
